@@ -2,7 +2,6 @@
 let noms = ["McGregor", "Cormier","Rua","Miocic","Ngannou","Makhachev","St-Pierre","Johnson","Silva","Henderson","Overeem","Gustafsson","Jones","Johnson","Nurmagomedov","Poirier", "Cro cop", "Gane"];
 
 
-
 // Declaration variables utiles
 // Masquer texte
 let masquer = document.querySelector('#champMasquer');
@@ -196,15 +195,17 @@ function changerImage (score) {
                 if (chances === 0) {
                     changerImage(chances);
                     resultat.style.display = "block";
-                    resultat.textContent = "Vous êtes KO! Vous avez perdu.";
+                    resultat.textContent = "Vous êtes KO! Vous avez perdu";
+                    texte.textContent = ("Il vous reste " + chances + " chances. Le nom à trouver etait :");
                     resultat.classList.add("defaite");
                     confirmerLettre.style.display = "none";
                     entrerLettre.style.display = "none";
-                    setTimeout(rejouer, 3000);       
+                    setTimeout(() => {
+                        masquer.textContent = nomTrouver.toUpperCase();
+                    }, 1000);
+                    setTimeout(rejouer, 4000);       
                 }
 
-
-               
     
                 // Gagné 
                 if (lettresRestantes === 0) {
